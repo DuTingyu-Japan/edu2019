@@ -19,7 +19,7 @@ public class DeptController {
 	@Autowired
 	private DeptService deptService;
 
-	// value写的是请求路径.
+	// value写的是请求路径。。。。
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String getDeptList(ModelMap modelMap) {
 		// 查询部门总数
