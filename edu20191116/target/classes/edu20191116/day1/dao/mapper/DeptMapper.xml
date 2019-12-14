@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="edu20191116.day1.dao.mapper.DeptMapper">
+
+	<resultMap type="edu20191116.day1.vo.DeptInfo"
+		id="deptResultMap">
+		<id property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="loc" column="loc" />
+	</resultMap>
+
+	<insert id="addDept" useGeneratedKeys="true"
+		keyProperty="deptno" parameterType="edu20191116.day1.vo.DeptInfo">
+		insert into dept(deptno,dname,loc)
+		values (null,#{dname},#{loc})
+	</insert>
+
+	<update id="updateDept"
+		parameterType="edu20191116.day1.vo.DeptInfo">
+		update dept set dname = #{dname},loc = #{loc} where
+		deptno = #{deptno}
+	</update>
+	
+	<delete id="deleteDept" parameterType="java.lang.Integer">
+	delete from dept where deptno = #{deptno}
+	</delete>
+
+</mapper>
