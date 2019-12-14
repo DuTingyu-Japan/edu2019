@@ -8,6 +8,7 @@ public interface DeptDAO {
 
 	List<DeptInfo> getDetpList();
 
+	//获得部门数
 	Integer getDeptCount();
 
 	DeptInfo getDeptById(Integer deptno);

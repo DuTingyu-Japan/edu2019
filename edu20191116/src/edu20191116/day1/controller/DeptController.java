@@ -85,4 +85,5 @@ public class DeptController {
 	public PaginationResult<List<DeptInfo>> getDeptPage(Integer pageIndex, Integer pageSize) {
 		return deptService.getDeptPage(pageIndex, pageSize);
 	}
+
 }
