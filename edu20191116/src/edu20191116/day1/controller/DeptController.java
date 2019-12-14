@@ -19,13 +19,13 @@ public class DeptController {
 	@Autowired
 	private DeptService deptService;
 
-	// value写的是请求路径
+	// value写的是请求路径.
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String getDeptList(ModelMap modelMap) {
 		// 查询部门总数
 		Integer cnt = deptService.getDeptCount();
 		List<DeptInfo> list = deptService.getDeptList();
-		// modelmap将数据set到页面。
+		// modelmap将数据set到页面
 		modelMap.addAttribute("cnt", cnt);
 		modelMap.addAttribute("list", list);
 		return "dept";// 如果方法是string类型的，那么return的值就是返回的页面名。这里指的是dept.jsp
