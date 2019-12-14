@@ -19,7 +19,7 @@ public class DeptController {
 	@Autowired
 	private DeptService deptService;
 
-	// value写的是请求路径。。。。
+	// value写的是请求路径。。。。123
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String getDeptList(ModelMap modelMap) {
 		// 查询部门总数
@@ -79,11 +79,18 @@ public class DeptController {
 	}
 
 	// 分页
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	// 不加ResponseBody的话，返回不到json格式
 	@ResponseBody
 	public PaginationResult<List<DeptInfo>> getDeptPage(Integer pageIndex, Integer pageSize) {
 		return deptService.getDeptPage(pageIndex, pageSize);
 	}
 
+	// 带分页的deptlist
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String getDeptIndex(Integer pageIndex, Integer pageSize,ModelMap modelMap) {
+		modelMap.put("pageIndex", pageIndex);
+		modelMap.put("pageSize", pageSize);
+		return "dept_index";
+	}
 }
